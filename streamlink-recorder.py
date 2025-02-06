@@ -51,8 +51,8 @@ def loop_check(config):
             timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H-%M-%S')
             ts_filename = f"{config.user} - {timestamp} - {safe_title}.ts"
             mp4_filename = f"{config.user} - {timestamp} - {safe_title}.mp4"
-            ts_filepath = os.path.join("./download/", ts_filename)
-            mp4_filepath = os.path.join("./download/", mp4_filename)
+            ts_filepath = os.path.join("/download/", ts_filename)
+            mp4_filepath = os.path.join("/download/", mp4_filename)
             
             message = f"Recording {config.user} ..."
             notifier_manager.notify_all(message)
