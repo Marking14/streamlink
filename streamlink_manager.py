@@ -45,7 +45,7 @@ class StreamlinkManager:
         stream = streams[quality]
         extension = self.get_stream_extension(stream)
         temp_filename = f"{recorded_filename}.part"
-        final_filename = f"{recorded_filename}.{extension}"
+        final_filename = f"{recorded_filename}"
         
         # Open the stream
         fd = stream.open()
