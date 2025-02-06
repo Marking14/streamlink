@@ -44,7 +44,7 @@ class StreamlinkManager:
         signal.signal(signal.SIGINT, lambda *args: self.cleanup(fd, temp_filename, final_filename, *args))
 
         try:
-            with open(temp_filename, 'wb+') as f:
+            with open(temp_filename, 'ab+') as f:
                 while True:
                     data = fd.read(1024)
                     if not data:
