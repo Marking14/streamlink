@@ -86,6 +86,7 @@ def parse_arguments():
     return AppConfig(args)
 
 def main():
+    logger.info(f"Starting Container")
     config = parse_arguments()
     logger.info(f"Checking for {config.user} every {config.timer} seconds. Record with {config.quality} quality.")
     loop_check(config)
