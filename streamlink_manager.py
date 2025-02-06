@@ -10,16 +10,6 @@ class StreamlinkManager:
 
     M3U8_EXTENSIONS = ['m3u8']
 
-    def get_stream_extension(self, stream):
-        if hasattr(stream, 'to_manifest_url'):
-            url = stream.to_manifest_url()
-            file_extension = url.split('?')[0].split('.')[-1]
-            file_extension = stream.url.split('?')[0].split('.')[-1]
-            if file_extension in self.M3U8_EXTENSIONS:
-                return 'ts'
-        else:
-            return 'mp4'
-
     def cleanup(self, fd, temp_filename, final_filename, *args):
         """
         Cleanup function to close the file descriptor and move the temporary file
@@ -43,7 +33,6 @@ class StreamlinkManager:
         if quality not in streams:
             quality = "best"
         stream = streams[quality]
-        extension = self.get_stream_extension(stream)
         temp_filename = f"{recorded_filename}.part"
         final_filename = f"{recorded_filename}"
         
